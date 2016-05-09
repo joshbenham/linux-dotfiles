@@ -1,0 +1,52 @@
+[user]
+    name = Josh Benham
+    email = joshbenham@gmail.com
+[credential]
+    helper = cache --timeout=3600
+[core]
+    filemode = false
+    whitespace = fix,-indent-with-non-tab,trailing-space
+    editor = /usr/bin/vim
+[push]
+    default = tracking
+[merge]
+    log = true
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+[color "branch"]
+    current = green
+    local = yellow
+    remote = cyan
+[color "diff"]
+    meta = yellow
+    frag = cyan
+    old = red
+    new = green
+    whitespace = red reverse
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    ff = pull --ff-only
+
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = commit -am 'WIP'
+    undo = reset HEAD~1 --mixed
+
+    # Branches
+    branch-sort = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+
+    # Submodules
+    submodule-pull = submodule foreach git pull origin master
+
+    # Graphs
+    graph = log --graph --pretty=format:\"%C(cyan)%h %C(green)%an %C(reset)%s\"
+    graph-extended = log --graph --pretty=format:\"%C(cyan)%h%C(red)%d %C(green)%an %C(reset)%s %C(yellow)%cr\" --date=short
