@@ -1,0 +1,14 @@
+# Python created
+*.pyc
+env
+dist
+*.egg-info
+distribute-*
+
+# Operating system created
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
