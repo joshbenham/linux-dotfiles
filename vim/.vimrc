@@ -9,3 +9,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
 
 call plug#end()
+
+
+" ===== "
+" Setup "
+" ===== "
+
+set number " Enable line numbering
+set mouse=a " Allow clicking to change cursor position
+set nowrap " Disable line wrapping
