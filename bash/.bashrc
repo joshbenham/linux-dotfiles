@@ -34,3 +34,5 @@ export SCM_CHECK=true
 source $BASH_IT/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/.bash_profile ] && source ~/.bash_profile
