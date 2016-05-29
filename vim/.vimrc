@@ -37,8 +37,12 @@ let mapleader="," " Set , to be the new leader key
 " Functionality
 "------------------------------------------------------------
 
+" Show the cursor line
+set cursorline
+highlight CursorLine cterm=none gui=none ctermbg=black guibg=black
+
 " Show appended white space
-highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 " Remove appended white space on save
