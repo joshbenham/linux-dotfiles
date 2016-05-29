@@ -14,7 +14,7 @@ call plug#end()
 
 
 "------------------------------------------------------------
-"  Setup
+" Setup
 "------------------------------------------------------------
 
 set t_Co=256 " Change the amount of colours in the palette
@@ -23,6 +23,18 @@ set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
 
 let mapleader="," " Set , to be the new leader key
+
+
+"------------------------------------------------------------
+" Functionality
+"------------------------------------------------------------
+
+" Show appended white space
+highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+match ExtraWhitespace /\s\+$/
+
+" Remove appended white space on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 "------------------------------------------------------------
