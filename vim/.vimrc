@@ -15,6 +15,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     Plug 'junegunn/fzf.vim'
 
+    " Plugins loaded when they are needed
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
 call plug#end()
 
 
@@ -61,5 +64,14 @@ let g:airline_powerline_fonts=1
 " FZF
 "------------------------------------------------------------
 
-nnoremap <silent> <Leader>p        :Files<CR>
-nnoremap <silent> <Leader>o        :Buffers<CR>
+nnoremap <silent> <leader>p             :Files<CR>
+nnoremap <silent> <leader>o             :Buffers<CR>
+
+
+"------------------------------------------------------------
+" Nerdtree
+"------------------------------------------------------------
+
+nnoremap <silent> <leader>e             :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ge            :NERDTreeFind<CR>
+
