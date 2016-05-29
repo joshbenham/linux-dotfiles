@@ -4,11 +4,16 @@ call plug#begin('~/.vim/plugged')
     " Setup
     "--------------------------------------------------------
 
+    " Always loaded plugins
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-sleuth'
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
+    " FZF installer and plugin
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+    Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -50,3 +55,11 @@ endif
 
 let g:airline_theme='base16color'
 let g:airline_powerline_fonts=1
+
+
+"------------------------------------------------------------
+" FZF
+"------------------------------------------------------------
+
+nnoremap <silent> <Leader>p        :Files<CR>
+nnoremap <silent> <Leader>o        :Buffers<CR>
