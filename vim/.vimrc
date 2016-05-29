@@ -36,6 +36,13 @@ match ExtraWhitespace /\s\+$/
 " Remove appended white space on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Set a column at 80 characters
+set textwidth=0
+if exists('&colorcolumn')
+    highlight ColorColumn ctermbg=black
+    set colorcolumn=80
+endif
+
 
 "------------------------------------------------------------
 " Airline
