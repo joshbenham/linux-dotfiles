@@ -22,6 +22,8 @@ set number " Enable line numbering
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
 
+let mapleader="," " Set , to be the new leader key
+
 
 "------------------------------------------------------------
 " Airline
