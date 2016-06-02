@@ -11,6 +11,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    " Themes
+    Plug 'ajh17/Spacegray.vim'
+
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     Plug 'junegunn/fzf.vim'
@@ -26,11 +29,13 @@ call plug#end()
 "------------------------------------------------------------
 
 set t_Co=256 " Change the amount of colours in the palette
+colorscheme spacegray
 set number " Enable line numbering
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
 
 let mapleader="," " Set , to be the new leader key
+highlight LineNr ctermfg=gray
 
 
 "------------------------------------------------------------
