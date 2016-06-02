@@ -76,6 +76,8 @@ nnoremap <silent> <leader>o             :Buffers<CR>
 " Nerdtree
 "------------------------------------------------------------
 
+let NERDTreeShowHidden=1
+
 nnoremap <silent> <leader>e             :NERDTreeToggle<CR>
 nnoremap <silent> <leader>ge            :NERDTreeFind<CR>
 
