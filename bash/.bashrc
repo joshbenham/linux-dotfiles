@@ -35,4 +35,8 @@ source $BASH_IT/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -f ~/.bash_profile ] && source ~/.bash_profile
+for file in ~/.bash/.{paths,extras,aliases,functions}
+do
+    [ -r "$file" ] && source "$file"
+done
+unset file
