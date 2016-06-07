@@ -1,1 +1,13 @@
 #!/bin/bash
+
+phpswap () {
+    local IS_PHP5=`php --version | grep "PHP 5"`
+
+    if [[ -z $IS_PHP5 ]]; then
+        echo "Changing to PHP 5.6"
+        sudo ln -sf /usr/bin/php5.6 /etc/alternatives/php
+    else
+        echo "Changing to PHP 7.0"
+        sudo ln -sf /usr/bin/php7.0 /etc/alternatives/php
+    fi
+}
