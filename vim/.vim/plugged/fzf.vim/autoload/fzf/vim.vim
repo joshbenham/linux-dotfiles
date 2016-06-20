@@ -49,6 +49,10 @@ function! s:escape(path)
   return escape(a:path, ' $%#''"\')
 endfunction
 
+function! s:q1(str)
+  return "'".substitute(a:str, "'", "'\\\\''", 'g')."'"
+endfunction
+
 if v:version >= 704
   function! s:function(name)
     return function(a:name)
@@ -101,8 +105,7 @@ function! s:fzf(opts, extra)
   let eopts  = has_key(extra, 'options') ? remove(extra, 'options') : ''
   let merged = extend(copy(a:opts), extra)
   let merged.options = join(filter([s:defaults(), get(merged, 'options', ''), eopts], '!empty(v:val)'))
-  call fzf#run(merged)
-  return 1
+  return fzf#run(merged)
 endfunction
 
 let s:default_action = {
@@ -405,7 +408,7 @@ function! s:git_status_sink(lines) abort
 endfunction
 
 function! fzf#vim#gitfiles(args, ...)
-  let root = systemlist('git rev-parse --show-toplevel')[0]
+  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
   if v:shell_error
     return s:warn('Not in git repo')
   endif
@@ -479,7 +482,8 @@ endfunction
 
 function! s:sort_buffers(...)
   let [b1, b2] = map(copy(a:000), 'get(g:fzf#vim#buffers, v:val, v:val)')
-  return b1 - b2
+  " Using minus between a float and a number in a sort function causes an error
+  return b1 > b2 ? 1 : -1
 endfunction
 
 function! fzf#vim#buffers(...)
@@ -525,10 +529,10 @@ endfunction
 
 " query, [[ag options], options]
 function! fzf#vim#ag(query, ...)
-  let query = escape(empty(a:query) ? '^(?=.)' : a:query, '"\-')
+  let query = empty(a:query) ? '^(?=.)' : a:query
   let args = copy(a:000)
   let ag_opts = len(args) > 1 ? remove(args, 0) : ''
-  let command = printf('%s "%s"', ag_opts, query)
+  let command = ag_opts . ' ' . s:q1(query)
   return call('fzf#vim#ag_raw', insert(args, command, 0))
 endfunction
 
@@ -588,7 +592,7 @@ function! s:btags_sink(lines)
 endfunction
 
 function! s:q(query)
-  return ' --query "'.escape(a:query, '"\').'"'
+  return ' --query '.s:q1(a:query)
 endfunction
 
 " query, [[tag commands], options]
@@ -947,17 +951,15 @@ endfunction
 function! s:key_sink(line)
   let key = matchstr(a:line, '^\S*')
   redraw
-  call feedkeys(s:map_gv.s:map_cnt.s:map_reg.s:map_op.
+  call feedkeys(s:map_gv.s:map_cnt.s:map_reg, 'n')
+  call feedkeys(s:map_op.
         \ substitute(key, '<[^ >]\+>', '\=eval("\"\\".submatch(0)."\"")', 'g'))
 endfunction
-
-" To avoid conflict with other plugins also using feedkeys (peekaboo)
-noremap <plug>(-fzf-vim-dq) "
 
 function! fzf#vim#maps(mode, ...)
   let s:map_gv  = a:mode == 'x' ? 'gv' : ''
   let s:map_cnt = v:count == 0 ? '' : v:count
-  let s:map_reg = empty(v:register) ? '' : ("\<plug>(-fzf-vim-dq)".v:register)
+  let s:map_reg = empty(v:register) ? '' : ('"'.v:register)
   let s:map_op  = a:mode == 'o' ? v:operator : ''
 
   redir => cout
