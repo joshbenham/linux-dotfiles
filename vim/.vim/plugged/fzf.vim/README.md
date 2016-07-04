@@ -41,7 +41,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 ```
 
-- `dir` option is not mandatory
+- `dir` and `do` options are not mandatory
 - Use `./install --bin` instead if you don't need fzf outside of Vim
 - Make sure to use Vim 7.4 or above
 
@@ -100,8 +100,11 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-" - window (nvim only)
 let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -121,11 +124,14 @@ let g:fzf_colors =
 
 #### Command-local options
 
-The right-hand-side values are the default values for the options.
-
 ```vim
+" [Files] Extra options for fzf
+"         e.g. File preview using CodeRay (http://coderay.rubychan.de/)
+let g:fzf_files_options =
+  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
 " [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 0
+let g:fzf_buffers_jump = 1
 
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -134,7 +140,7 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 let g:fzf_tags_command = 'ctags -R'
 
 " [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'ctrl-x'
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 ```
 
 #### Advanced customization using autoload functions
