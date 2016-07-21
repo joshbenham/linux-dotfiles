@@ -48,7 +48,7 @@ highlight CursorLine cterm=none gui=none ctermbg=black guibg=black
 
 " Show spaces as characters
 set list
-set listchars+=space:.
+set listchars+=space:.,tab:>-
 
 " Show appended white space
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
