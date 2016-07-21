@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'sheerun/vim-polyglot'
 
     " Themes
     Plug 'ajh17/Spacegray.vim'
