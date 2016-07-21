@@ -46,6 +46,10 @@ highlight LineNr ctermfg=gray
 set cursorline
 highlight CursorLine cterm=none gui=none ctermbg=black guibg=black
 
+" Show spaces as characters
+set list
+set listchars+=space:.
+
 " Show appended white space
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
