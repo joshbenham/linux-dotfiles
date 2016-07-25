@@ -46,6 +46,7 @@
 
     # Submodules
     submodule-pull = submodule foreach git pull origin master
+    submodule-pull-dev = submodule foreach git pull origin development
 
     # Graphs
     graph = log --graph --pretty=format:\"%C(cyan)%h %C(green)%an %C(reset)%s\"
