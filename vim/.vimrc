@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-fugitive'
 
     " Themes
     Plug 'ajh17/Spacegray.vim'
