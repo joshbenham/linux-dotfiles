@@ -1,1 +1,10 @@
 #!/bin/bash
+
+
+# -----------------------------------------------------------------------------
+# Git
+# -----------------------------------------------------------------------------
+
+
+alias git-submodules-development='git submodule foreach git checkout development; git submodule foreach git pull origin development'
+alias git-submodules-master='git submodule foreach git checkout master; git submodule foreach git pull origin master'
