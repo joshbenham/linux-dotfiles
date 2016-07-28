@@ -46,7 +46,10 @@
 
     # Submodules
     submodule-pull = submodule foreach git pull origin master
-    submodule-pull-dev = submodule foreach git pull origin development
+
+    submodules-pull = "!f() { git submodule foreach git checkout $1 && git submodule foreach git pull origin $1; }; f"
+    submodules-pull-master = "!f() { git submodule foreach git checkout master && git submodule foreach git pull origin master; }; f"
+    submodules-pull-development = "!f() { git submodule foreach git checkout development && git submodule foreach git pull origin development; }; f"
 
     # Graphs
     graph = log --graph --pretty=format:\"%C(cyan)%h %C(green)%an %C(reset)%s\"
