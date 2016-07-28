@@ -1,4 +1,4 @@
 #!/bin/bash
 
 alias phpcs-sniff='phpcs --standard=PSR2 --ignore=.git/*,tests/*,vendor/*,public/*,*.blade.php,node_modules/*,migrations/,seeds/,bootstrap/*'
-alias phpcs-fix='phpcbf --standard=PSR2 --ignore=.,egit/*,tests/*,vendor/*,public/*,*.blade.php,node_modules/*,migrations/,seeds/,bootstrap/*'
+alias phpcs-fix='phpcbf --standard=PSR2 --ignore= git/*,tests/*,vendor/*,public/*,*.blade.php,node_modules/*,migrations/,seeds/,bootstrap/*'
