@@ -1,3 +1,7 @@
 #!/bin/bash
 
 export TERM=xterm-256color
+
+if [ -f ~/bin/vcprompt ]; then
+    export VCPROMPT_EXECUTABLE=~/bin/vcprompt
+fi
