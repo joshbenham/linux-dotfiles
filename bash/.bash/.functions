@@ -16,6 +16,19 @@ phpswap () {
 }
 
 
+# CLEANUP TOOLS
+# -----------------------------------------------------------------------------
+
+cleanup () {
+    local DIRECTORY=${1:-"."}
+
+    echo "Cleaning up .DS_Store files"
+    find $DIRECTORY -name '*.DS_Store' -type f -ls -delete
+    echo "Cleaning up .fuse_hidden files"
+    find $DIRECTORY -name '.fuse_hidden*' -type f -ls -delete
+}
+
+
 # BACKUP TOOLS
 # -----------------------------------------------------------------------------
 
