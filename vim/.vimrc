@@ -90,6 +90,6 @@ nnoremap <silent> <leader>o             :Buffers<CR>
 
 let NERDTreeShowHidden=1
 
-nnoremap <silent> <leader>e             :NERDTreeToggle<CR>
-nnoremap <silent> <leader>ge            :NERDTreeFind<CR>
+nnoremap <silent> <leader>f             :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ff            :NERDTreeFind<CR>
 
