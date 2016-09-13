@@ -12,3 +12,4 @@ alias phpcs-fix='phpcbf --standard=PSR2 --ignore= git/*,tests/*,vendor/*,public/
 
 alias slow-query-digest='pt-query-digest /var/log/mysql/mysql-slow.log'
 alias slow-query-index='pt-index-usage /var/log/mysql/mysql-slow.log --user=demo --password=demo'
+alias slow-query-popular='mysqldumpslow -a -s c -t 5 /var/log/mysql/mysql-slow.log'
