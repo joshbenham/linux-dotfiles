@@ -1,4 +1,14 @@
 #!/bin/bash
 
+# PHP Code Sniffer
+# -----------------------------------------------------------------------------
+
 alias phpcs-sniff='phpcs --standard=PSR2 --ignore=.git/*,tests/*,vendor/*,public/*,*.blade.php,node_modules/*,migrations/,seeds/,bootstrap/*'
 alias phpcs-fix='phpcbf --standard=PSR2 --ignore= git/*,tests/*,vendor/*,public/*,*.blade.php,node_modules/*,migrations/,seeds/,bootstrap/*'
+
+
+# MySQL Slow Query
+# -----------------------------------------------------------------------------
+
+alias slow-query-digest='pt-query-digest /var/log/mysql/mysql-slow.log'
+alias slow-query-index='pt-index-usage /var/log/mysql/mysql-slow.log --user=demo --password=demo'
