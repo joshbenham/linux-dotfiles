@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 
     " Themes
     Plug 'ajh17/Spacegray.vim'
+    Plug 'altercation/vim-colors-solarized'
 
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -31,7 +32,7 @@ call plug#end()
 "------------------------------------------------------------
 
 set t_Co=256 " Change the amount of colours in the palette
-colorscheme spacegray
+colorscheme solarized
 set number " Enable line numbering
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
