@@ -36,7 +36,10 @@
     ci = commit
     co = checkout
     ff = pull --ff-only
+    uncommit = reset HEAD --
+    last = log -1 HEAD
 
+    # Work In Progress
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = commit -am 'WIP'
     undo = reset HEAD~1 --mixed
