@@ -1,11 +1,17 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Editor
-export VISUAL=vim
-export EDITOR=$VISUA
+# Customize to your needs...
+
 
 # Load ZSH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -16,3 +22,4 @@ do
     [ -r "$file" ] && source "$file"
 done
 unset file
+
