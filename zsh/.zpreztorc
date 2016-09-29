@@ -1,0 +1,17 @@
+# Colors
+zstyle ':prezto:*:*' color 'yes'
+
+# Modules
+zstyle ':prezto:load' pmodule \
+  'directory' \
+  'utility' \
+  'completion' \
+  'git' \
+  'prompt' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
+
+
+# Theme
+zstyle ':prezto:module:prompt' theme 'steeef'
