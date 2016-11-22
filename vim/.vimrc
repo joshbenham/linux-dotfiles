@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     " Themes
     Plug 'ajh17/Spacegray.vim'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'whatyouhide/vim-gotham'
 
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
