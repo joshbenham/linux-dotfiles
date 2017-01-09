@@ -10,8 +10,8 @@ phpswap () {
         echo "Changing to PHP 5.6"
         sudo ln -sf /usr/bin/php5.6 /etc/alternatives/php
     else
-        echo "Changing to PHP 7.0"
-        sudo ln -sf /usr/bin/php7.0 /etc/alternatives/php
+        echo "Changing to PHP 7.1"
+        sudo ln -sf /usr/bin/php7.1 /etc/alternatives/php
     fi
 }
 
