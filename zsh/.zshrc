@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower colorize composer go golang gulp history history-substring-search laravel laravel4 laravel5 node npm pip python sublime sudo themes yarn)
+plugins=(git bower colorize composer go golang gulp history history-substring-search laravel laravel4 laravel5 node npm pip python sublime sudo themes yarn command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 

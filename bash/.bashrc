@@ -33,8 +33,10 @@ export SCM_CHECK=true
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
+# Load FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Load Personal
 for file in ~/.bash/.{paths,extras,aliases,functions}
 do
     [ -r "$file" ] && source "$file"

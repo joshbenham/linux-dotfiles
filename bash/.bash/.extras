@@ -2,10 +2,24 @@
 
 export TERM=xterm-256color
 
+
+# DIRCOLORS
+# -----------------------------------------------------------------------------
+
 if [ -f ~/.dircolors ]; then
     eval "`dircolors -b ~/.dircolors`"
 fi
 
+
+# VCPROMPT (Git CLI Functionality)
+# -----------------------------------------------------------------------------
+
 if [ -f ~/bin/vcprompt ]; then
     export VCPROMPT_EXECUTABLE=~/bin/vcprompt
 fi
+
+
+# FZF
+# -----------------------------------------------------------------------------
+
+export FZF_DEFAULT_OPTS='--height 100%'
