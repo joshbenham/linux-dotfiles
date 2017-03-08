@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ajh17/Spacegray.vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'whatyouhide/vim-gotham'
+    Plug 'dracula/vim'
 
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -34,7 +35,7 @@ call plug#end()
 
 set t_Co=256 " Change the amount of colours in the palette
 set background=dark
-colorscheme solarized
+colorscheme dracula
 set number " Enable line numbering
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
@@ -74,7 +75,7 @@ endif
 " Airline
 "------------------------------------------------------------
 
-let g:airline_theme='base16'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
