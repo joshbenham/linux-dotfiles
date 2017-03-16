@@ -22,4 +22,8 @@ fi
 # FZF
 # -----------------------------------------------------------------------------
 
-export FZF_DEFAULT_OPTS='--height 100%'
+export FZF_DEFAULT_OPTS='
+    --height 100%
+    --color=fg:7,bg+:0,hl:6,hl+:2
+    --color=info:3,prompt:4,spinner:1,pointer:4
+'
