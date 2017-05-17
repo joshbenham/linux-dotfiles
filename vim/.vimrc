@@ -70,6 +70,10 @@ if exists('&colorcolumn')
     set colorcolumn=80
 endif
 
+" Editing VIM
+nmap ,ev :tabedit $MYVIMRC<CR>
+nmap ,sv :so $MYVIMRC<CR>
+
 
 "------------------------------------------------------------
 " Airline
