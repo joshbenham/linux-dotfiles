@@ -71,8 +71,8 @@ if exists('&colorcolumn')
 endif
 
 " Editing VIM
-nmap ,ev :tabedit $MYVIMRC<CR>
-nmap ,sv :so $MYVIMRC<CR>
+nmap <leader>ev :tabedit $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 
 
 "------------------------------------------------------------
