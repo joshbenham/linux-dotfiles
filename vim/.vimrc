@@ -5,19 +5,20 @@ call plug#begin('~/.vim/plugged')
     "--------------------------------------------------------
 
     " Always loaded plugins
-    Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-sleuth'
     Plug 'airblade/vim-gitgutter'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'sheerun/vim-polyglot'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-vinegar'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Themes
     Plug 'ajh17/Spacegray.vim'
     Plug 'altercation/vim-colors-solarized'
-    Plug 'whatyouhide/vim-gotham'
     Plug 'dracula/vim'
+    Plug 'whatyouhide/vim-gotham'
 
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
