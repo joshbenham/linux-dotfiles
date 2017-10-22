@@ -32,7 +32,7 @@ let s:is_win = has('win32') || has('win64')
 let s:layout_keys = ['window', 'up', 'down', 'left', 'right']
 let s:bin_dir = expand('<sfile>:h:h:h').'/bin/'
 let s:bin = {
-\ 'preview': s:bin_dir.(!s:is_win && executable('ruby') ? 'preview.rb' : 'preview.sh'),
+\ 'preview': s:bin_dir.(executable('ruby') ? 'preview.rb' : 'preview.sh'),
 \ 'tags':    s:bin_dir.'tags.pl' }
 let s:TYPE = {'dict': type({}), 'funcref': type(function('call')), 'string': type(''), 'list': type([])}
 if s:is_win
@@ -41,22 +41,35 @@ if s:is_win
   else
     let s:bin.preview = fnamemodify(s:bin.preview, ':8')
   endif
-  let s:bin.preview = 'bash '.escape(s:bin.preview, '\')
+  let s:bin.preview = (executable('ruby') ? 'ruby' : 'bash').' '.escape(s:bin.preview, '\')
 endif
 
-function! s:merge_opts(dict, eopts)
+function! s:extend_opts(dict, eopts, prepend)
   if empty(a:eopts)
     return
   endif
   if has_key(a:dict, 'options')
     if type(a:dict.options) == s:TYPE.list && type(a:eopts) == s:TYPE.list
-      call extend(a:dict.options, a:eopts)
+      if a:prepend
+        let a:dict.options = extend(copy(a:eopts), a:dict.options)
+      else
+        call extend(a:dict.options, a:eopts)
+      endif
     else
-      let a:dict.options = join(map([a:dict.options, a:eopts], 'type(v:val) == s:TYPE.list ? join(map(copy(v:val), "fzf#shellescape(v:val)")) : v:val'))
+      let all_opts = a:prepend ? [a:eopts, a:dict.options] : [a:dict.options, a:eopts]
+      let a:dict.options = join(map(all_opts, 'type(v:val) == s:TYPE.list ? join(map(copy(v:val), "fzf#shellescape(v:val)")) : v:val'))
     endif
   else
     let a:dict.options = a:eopts
   endif
+endfunction
+
+function! s:merge_opts(dict, eopts)
+  return s:extend_opts(a:dict, a:eopts, 0)
+endfunction
+
+function! s:prepend_opts(dict, eopts)
+  return s:extend_opts(a:dict, a:eopts, 1)
 endfunction
 
 " [[options to wrap], preview window expression, [toggle-preview keys...]]
@@ -1088,6 +1101,11 @@ function! s:commits(buffer_local, args)
     let options.options[-1] .= ',ctrl-d'
   endif
 
+  if !s:is_win
+    call extend(options.options,
+    \ ['--preview', 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --format=format: --color=always | head -200'])
+  endif
+
   return s:fzf(a:buffer_local ? 'bcommits' : 'commits', options, a:args)
 endfunction
 
@@ -1173,7 +1191,7 @@ endfunction
 
 function! s:complete_trigger()
   let opts = copy(s:opts)
-  call s:merge_opts(opts, ['+m', '-q', s:query])
+  call s:prepend_opts(opts, ['+m', '-q', s:query])
   let opts['sink*'] = s:function('s:complete_insert')
   let s:reducer = s:pluck(opts, 'reducer', s:function('s:first_line'))
   call fzf#run(opts)
