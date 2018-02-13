@@ -16,9 +16,9 @@ alias phpcs-fix='phpcbf --standard=PSR2 --ignore=.git/*,tests/*,vendor/*,public/
 # MySQL Slow Query
 # -----------------------------------------------------------------------------
 
-alias slow-query-digest='pt-query-digest /var/log/mysql/mysql-slow.log'
-alias slow-query-index='pt-index-usage /var/log/mysql/mysql-slow.log --user=demo --password=demo'
-alias slow-query-popular='mysqldumpslow -a -s c -t 5 /var/log/mysql/mysql-slow.log'
+alias slow-query-digest='pt-query-digest /var/log/mysql/slow-query.log'
+alias slow-query-index='pt-index-usage /var/log/mysql/slow-query.log --user=demo --password=demo'
+alias slow-query-popular='mysqldumpslow -a -s c -t 5 /var/log/mysql/slow-query.log'
 
 
 # Monitor Functions
