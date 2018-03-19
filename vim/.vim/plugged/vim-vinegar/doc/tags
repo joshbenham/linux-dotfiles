@@ -1,0 +1,10 @@
+vinegar	vinegar.txt	/*vinegar*
+vinegar-!	vinegar.txt	/*vinegar-!*
+vinegar--	vinegar.txt	/*vinegar--*
+vinegar-.	vinegar.txt	/*vinegar-.*
+vinegar-c_<C-R>_<C-F>	vinegar.txt	/*vinegar-c_<C-R>_<C-F>*
+vinegar-c_CTRL-R_CTRL-F	vinegar.txt	/*vinegar-c_CTRL-R_CTRL-F*
+vinegar-mappings	vinegar.txt	/*vinegar-mappings*
+vinegar-y.	vinegar.txt	/*vinegar-y.*
+vinegar-~	vinegar.txt	/*vinegar-~*
+vinegar.txt	vinegar.txt	/*vinegar.txt*
