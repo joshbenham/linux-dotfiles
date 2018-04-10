@@ -18,6 +18,16 @@ localhost-restart () {
 # PHP
 # -----------------------------------------------------------------------------
 
+unit() {
+    FILE="$PWD/vendor/bin/phpunit"
+    if [ -x "$FILE" ]; then
+        $FILE $@
+    else
+        phpunit $@
+    fi
+}
+
+
 phpswap () {
     if [[ -z "$1" ]];  then
         echo "You did not specify a version (5.6, 7.0, 7.2)"
