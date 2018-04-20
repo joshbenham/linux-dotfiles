@@ -74,18 +74,11 @@ cleanup () {
 # BACKUP TOOLS
 # -----------------------------------------------------------------------------
 
-download_development_media () {
-    rsync -ravzP "$1"@development:~/project/website/public/media public
+download_media () {
+    rsync -ravzP "$1"@sa:~/project/website/public/media public
 }
 
-download_development_snippets () {
-    rsync -ravzP "$1"@development:~/project/website/app/views/snippet app/views
+download_snippets () {
+    rsync -ravzP "$1"@sa:~/project/website/app/views/snippet app/views
 }
 
-download_master_media () {
-    rsync -ravzP "$1"@master:~/project/website/public/media public
-}
-
-download_master_snippets () {
-    rsync -ravzP "$1"@master:~/project/website/app/views/snippet app/views
-}
