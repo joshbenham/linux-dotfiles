@@ -2,5 +2,5 @@
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
