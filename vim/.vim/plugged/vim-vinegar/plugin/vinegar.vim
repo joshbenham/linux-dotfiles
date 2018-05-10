@@ -18,7 +18,6 @@ endfunction
 
 let s:dotfiles = '\(^\|\s\s\)\zs\.\S\+'
 
-let g:netrw_sort_sequence = '[\/]$,*,\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\|') . '\)[*@]\=$'
 let s:escape = 'substitute(escape(v:val, ".$~"), "*", ".*", "g")'
 let g:netrw_list_hide =
       \ join(map(split(&wildignore, ','), '"^".' . s:escape . '. "/\\=$"'), ',') . ',^\.\.\=/\=$' .
@@ -94,7 +93,7 @@ endfunction
 
 function! s:escaped(first, last) abort
   let files = s:relatives(a:first, a:last)
-  return join(map(files, 'fnameescape(v:val)'), ' ')
+  return join(map(files, 's:fnameescape(v:val)'), ' ')
 endfunction
 
 function! s:setup_vinegar() abort
@@ -124,6 +123,7 @@ function! s:setup_vinegar() abort
   endif
   nmap <buffer> ! .!
   xmap <buffer> ! .!
+  let g:netrw_sort_sequence = '[\/]$,*,\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\|') . '\)[*@]\=$'
   exe 'syn match netrwSuffixes =\%(\S\+ \)*\S\+\%('.join(map(split(&suffixes, ','), s:escape), '\|') . '\)[*@]\=\S\@!='
   hi def link netrwSuffixes SpecialKey
 endfunction
