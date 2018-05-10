@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 
     " Themes
-    Plug 'dracula/vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
     " FZF installer and plugin
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
