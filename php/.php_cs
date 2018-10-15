@@ -1,26 +1,26 @@
 <?php
 
 return PhpCsFixer\Config::create()
-    ->setRules(array(
+    ->setRules([
         '@PSR2' => true,
-        'array_syntax' => array('syntax' => 'short'),
+        'array_syntax' => ['syntax' => 'short'],
         'combine_consecutive_unsets' => true,
         'method_separation' => true,
         'no_multiline_whitespace_before_semicolons' => true,
         'single_quote' => true,
 
-        'binary_operator_spaces' => array(
+        'binary_operator_spaces' => [
             'align_double_arrow' => false,
             'align_equals' => false,
-        ),
+        ],
         // 'blank_line_after_opening_tag' => true,
         // 'blank_line_before_return' => true,
-        'braces' => array(
+        'braces' => [
             'allow_single_line_closure' => true,
-        ),
+        ],
         // 'cast_spaces' => true,
         // 'class_definition' => array('singleLine' => true),
-        'concat_space' => array('spacing' => 'one'),
+        'concat_space' => ['spacing' => 'one'],
         'declare_equal_normalize' => true,
         'function_typehint_space' => true,
         'hash_to_slash_comment' => true,
@@ -33,14 +33,14 @@ return PhpCsFixer\Config::create()
         // 'no_empty_comment' => true,
         // 'no_empty_phpdoc' => true,
         // 'no_empty_statement' => true,
-        'no_extra_consecutive_blank_lines' => array(
+        'no_extra_consecutive_blank_lines' => [
             'curly_brace_block',
             'extra',
             'parenthesis_brace_block',
             'square_brace_block',
             'throw',
             'use',
-        ),
+        ],
         // 'no_leading_import_slash' => true,
         // 'no_leading_namespace_whitespace' => true,
         // 'no_mixed_echo_print' => array('use' => 'echo'),
@@ -88,7 +88,6 @@ return PhpCsFixer\Config::create()
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'whitespace_after_comma_in_array' => true,
-    ))
+    ])
     //->setIndent("\t")
-    ->setLineEnding("\n")
-;
+    ->setLineEnding("\n");
