@@ -34,14 +34,12 @@ phpswap () {
     elif [[ "$1" == "7.0" ]]; then
         echo "Changing to PHP 7.0"
         sudo ln -sf /usr/bin/php7.0 /etc/alternatives/php
-        sudo a2dismod php5.6
         sudo a2dismod php7.3
         sudo a2enmod php7.0
         sudo systemctl restart apache2
     elif [[ "$1" == "7.3" ]]; then
         echo "Changing to PHP 7.3"
         sudo ln -sf /usr/bin/php7.3 /etc/alternatives/php
-        sudo a2dismod php5.6
         sudo a2dismod php7.0
         sudo a2enmod php7.3
         sudo systemctl restart apache2
