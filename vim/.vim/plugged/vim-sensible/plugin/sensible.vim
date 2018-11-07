@@ -64,7 +64,7 @@ if has('path_extra')
 endif
 
 if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
-  set shell=/bin/bash
+  set shell=/usr/bin/env\ bash
 endif
 
 set autoread
@@ -78,10 +78,7 @@ endif
 if !empty(&viminfo)
   set viminfo^=!
 endif
-if &sessionoptions =~# '\<options\>'
-  set sessionoptions-=options
-  set sessionoptions+=localoptions
-endif
+set sessionoptions-=options
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
