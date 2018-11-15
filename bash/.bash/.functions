@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# SYSTEM
+# -----------------------------------------------------------------------------
+
+update () {
+    sudo apt update
+    sudo apt upgrade
+    sudo apt autoclean
+    sudo apt autoremove
+    sudo snap refresh
+}
+
+
 # LAMP
 # -----------------------------------------------------------------------------
 
