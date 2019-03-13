@@ -32,7 +32,7 @@ let s:is_win = has('win32') || has('win64')
 let s:layout_keys = ['window', 'up', 'down', 'left', 'right']
 let s:bin_dir = expand('<sfile>:h:h:h').'/bin/'
 let s:bin = {
-\ 'preview': s:bin_dir.(executable('ruby') ? 'preview.rb' : 'preview.sh'),
+\ 'preview': s:bin_dir.'preview.sh',
 \ 'tags':    s:bin_dir.'tags.pl' }
 let s:TYPE = {'dict': type({}), 'funcref': type(function('call')), 'string': type(''), 'list': type([])}
 if s:is_win
@@ -41,7 +41,7 @@ if s:is_win
   else
     let s:bin.preview = fnamemodify(s:bin.preview, ':8')
   endif
-  let s:bin.preview = (executable('ruby') ? 'ruby' : 'bash').' '.escape(s:bin.preview, '\')
+  let s:bin.preview = 'bash '.escape(s:bin.preview, '\')
 endif
 
 let s:wide = 120
@@ -74,7 +74,7 @@ function! s:prepend_opts(dict, eopts)
   return s:extend_opts(a:dict, a:eopts, 1)
 endfunction
 
-" [[options to wrap], preview window expression, [toggle-preview keys...]]
+" [[options to wrap], [preview window expression], [toggle-preview keys...]]
 function! fzf#vim#with_preview(...)
   " Default options
   let options = {}
@@ -583,7 +583,7 @@ function! s:find_open_window(b)
 endfunction
 
 function! s:jump(t, w)
-  execute 'normal!' a:t.'gt'
+  execute a:t.'tabnext'
   execute a:w.'wincmd w'
 endfunction
 
@@ -896,7 +896,7 @@ function! s:command_sink(lines)
   endif
   let cmd = matchstr(a:lines[1], s:nbs.'\zs\S*\ze'.s:nbs)
   if empty(a:lines[0])
-    call feedkeys(':'.cmd.(a:lines[1][0] == '!' ? '' : ' '))
+    call feedkeys(':'.cmd.(a:lines[1][0] == '!' ? '' : ' '), 'n')
   else
     execute cmd
   endif

@@ -124,7 +124,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+let g:fzf_layout = { 'window': '10split' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -183,8 +183,9 @@ command! -bang Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 
 " Augmenting Ag command using fzf#vim#with_preview function
-"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
 "       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
 "       - CodeRay: http://coderay.rubychan.de/
 "       - Rouge: https://github.com/jneen/rouge
