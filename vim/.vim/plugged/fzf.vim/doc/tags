@@ -18,6 +18,7 @@ fzf-vim-toc	fzf-vim.txt	/*fzf-vim-toc*
 fzf-vim-usage	fzf-vim.txt	/*fzf-vim-usage*
 fzf-vim-using-vim-plug	fzf-vim.txt	/*fzf-vim-using-vim-plug*
 fzf-vim-why-you-should-use-fzf-on-vim	fzf-vim.txt	/*fzf-vim-why-you-should-use-fzf-on-vim*
+fzf-vim.txt	fzf-vim.txt	/*fzf-vim.txt*
 g:fzf_buffers_jump	fzf-vim.txt	/*g:fzf_buffers_jump*
 g:fzf_command_prefix	fzf-vim.txt	/*g:fzf_command_prefix*
 g:fzf_commands_expect	fzf-vim.txt	/*g:fzf_commands_expect*
