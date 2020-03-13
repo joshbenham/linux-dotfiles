@@ -42,17 +42,26 @@ unit() {
 
 phpswap () {
     if [[ -z "$1" ]];  then
-        echo "You did not specify a version (7.0, 7.4)"
+        echo "You did not specify a version (7.0, 7.3, 7.4)"
     elif [[ "$1" == "7.0" ]]; then
         echo "Changing to PHP 7.0"
         sudo ln -sf /usr/bin/php7.0 /etc/alternatives/php
+        sudo a2dismod php7.3
         sudo a2dismod php7.4
         sudo a2enmod php7.0
+        sudo systemctl restart apache2
+    elif [[ "$1" == "7.3" ]]; then
+        echo "Changing to PHP 7.3"
+        sudo ln -sf /usr/bin/php7.3 /etc/alternatives/php
+        sudo a2dismod php7.3
+        sudo a2dismod php7.4
+        sudo a2enmod php7.3
         sudo systemctl restart apache2
     elif [[ "$1" == "7.4" ]]; then
         echo "Changing to PHP 7.4"
         sudo ln -sf /usr/bin/php7.4 /etc/alternatives/php
         sudo a2dismod php7.0
+        sudo a2dismod php7.3
         sudo a2enmod php7.4
         sudo systemctl restart apache2
     else
