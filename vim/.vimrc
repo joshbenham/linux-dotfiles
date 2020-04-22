@@ -92,6 +92,6 @@ nnoremap <silent> <leader><ENTER>             :Goyo<CR>
 
 let NERDTreeShowHidden=1
 
-" nnoremap <silent> <leader>f             :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f             :NERDTreeToggle<CR>
 nnoremap <silent> <leader>ff            :NERDTreeFind<CR>
 
