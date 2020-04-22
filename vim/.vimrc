@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
 
     " FZF installer and plugin
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
     " Plugins loaded when they are needed
