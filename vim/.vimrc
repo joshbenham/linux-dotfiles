@@ -2,8 +2,30 @@
 " Plugins
 "------------------------------------------------------------
 
-so ~/.vim/plugins.vim
+call plug#begin('~/.vim/plugged')
 
+    " UI based Plugins
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'junegunn/goyo.vim'
+
+    " FZF installer and plugin
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+    Plug 'junegunn/fzf.vim'
+
+    " Plugins loaded when they are needed
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+    " Always loaded plugins
+    Plug 'airblade/vim-gitgutter'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-vinegar'
+
+call plug#end()
 
 "------------------------------------------------------------
 " Setup
@@ -12,13 +34,12 @@ so ~/.vim/plugins.vim
 set t_Co=256 " Change the amount of colours in the palette
 set background=dark
 colorscheme dracula
-set number " Enable line numbering
+set number relativenumber" Enable line numbering
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
 
 let mapleader="," " Set , to be the new leader key
 highlight LineNr ctermfg=gray
-
 
 "------------------------------------------------------------
 " Functionality
@@ -46,11 +67,6 @@ if exists('&colorcolumn')
     set colorcolumn=80
 endif
 
-" Editing VIM
-nmap <leader>ev :tabedit $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR>
-
-
 "------------------------------------------------------------
 " Airline
 "------------------------------------------------------------
@@ -59,7 +75,6 @@ let g:airline_theme='dracula'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
-
 "------------------------------------------------------------
 " FZF
 "------------------------------------------------------------
@@ -67,6 +82,11 @@ let g:airline#extensions#tabline#enabled=1
 nnoremap <silent> <leader>p             :Files<CR>
 nnoremap <silent> <leader>o             :Buffers<CR>
 
+"------------------------------------------------------------
+" Goyo
+"------------------------------------------------------------
+
+nnoremap <silent> <leader><ENTER>             :Goyo<CR>
 
 "------------------------------------------------------------
 " Nerdtree
@@ -74,6 +94,6 @@ nnoremap <silent> <leader>o             :Buffers<CR>
 
 let NERDTreeShowHidden=1
 
-nnoremap <silent> <leader>f             :NERDTreeToggle<CR>
+" nnoremap <silent> <leader>f             :NERDTreeToggle<CR>
 nnoremap <silent> <leader>ff            :NERDTreeFind<CR>
 
