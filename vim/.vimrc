@@ -43,7 +43,9 @@ set number relativenumber " Enable line numbering
 highlight LineNr ctermfg=gray
 
 set cursorline " Show the cursor line
+set cursorcolumn " Show the cursor column
 highlight CursorLine cterm=none gui=none ctermbg=black guibg=black
+highlight CursorColumn cterm=none gui=none ctermbg=black guibg=black
 
 " Show appended white space
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
