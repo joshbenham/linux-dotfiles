@@ -32,31 +32,23 @@ call plug#end()
 set t_Co=256 " Change the amount of colours in the palette
 set background=dark
 colorscheme dracula
-set number relativenumber" Enable line numbering
+
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
-
 let mapleader="," " Set , to be the new leader key
+set list " Show spaces as characters
+" set listchars+=space:.,tab:>-
+
+set number relativenumber " Enable line numbering
 highlight LineNr ctermfg=gray
 
-"------------------------------------------------------------
-" Functionality
-"------------------------------------------------------------
-
-" Show the cursor line
-set cursorline
+set cursorline " Show the cursor line
 highlight CursorLine cterm=none gui=none ctermbg=black guibg=black
-
-" Show spaces as characters
-set list
-" set listchars+=space:.,tab:>-
 
 " Show appended white space
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
-
-" Remove appended white space on save
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e " Remove appended white space on save
 
 " Set a column at 80 characters
 set textwidth=0
