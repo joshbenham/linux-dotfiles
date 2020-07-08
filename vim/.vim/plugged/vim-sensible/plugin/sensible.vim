@@ -79,9 +79,10 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 set sessionoptions-=options
+set viewoptions-=options
 
 " Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
 endif
 
@@ -90,6 +91,11 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
-inoremap <C-U> <C-G>u<C-U>
+if empty(mapcheck('<C-U>', 'i'))
+  inoremap <C-U> <C-G>u<C-U>
+endif
+if empty(mapcheck('<C-W>', 'i'))
+  inoremap <C-W> <C-G>u<C-W>
+endif
 
 " vim:set ft=vim et sw=2:
