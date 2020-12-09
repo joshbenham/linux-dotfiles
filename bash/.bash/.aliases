@@ -4,6 +4,7 @@
 # -----------------------------------------------------------------------------
 
 alias artisan='php artisan'
+alias sail='bash vendor/bin/sail'
 
 
 # PHP Code Sniffer
