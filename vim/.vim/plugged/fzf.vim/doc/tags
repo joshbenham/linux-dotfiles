@@ -27,6 +27,7 @@ fzf-vim-completion-functions	fzf-vim.txt	/*fzf-vim-completion-functions*
 fzf-vim-custom-completion	fzf-vim.txt	/*fzf-vim-custom-completion*
 fzf-vim-custom-statusline	fzf-vim.txt	/*fzf-vim-custom-statusline*
 fzf-vim-customization	fzf-vim.txt	/*fzf-vim-customization*
+fzf-vim-dependencies	fzf-vim.txt	/*fzf-vim-dependencies*
 fzf-vim-example-advanced-ripgrep-integration	fzf-vim.txt	/*fzf-vim-example-advanced-ripgrep-integration*
 fzf-vim-example-customizing-files-command	fzf-vim.txt	/*fzf-vim-example-customizing-files-command*
 fzf-vim-example-git-grep-wrapper	fzf-vim.txt	/*fzf-vim-example-git-grep-wrapper*
