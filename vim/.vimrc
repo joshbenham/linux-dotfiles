@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
     " UI based Plugins
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'arcticicestudio/nord-vim'
     Plug 'junegunn/goyo.vim'
 
     " FZF installer and plugin
@@ -31,7 +31,7 @@ call plug#end()
 
 set t_Co=256 " Change the amount of colours in the palette
 set background=dark
-colorscheme dracula
+colorscheme nord
 
 set mouse=a " Allow clicking to change cursor position
 set nowrap " Disable line wrapping
@@ -63,7 +63,7 @@ endif
 " Airline
 "------------------------------------------------------------
 
-let g:airline_theme='dracula'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
