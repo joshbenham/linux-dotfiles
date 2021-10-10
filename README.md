@@ -6,7 +6,7 @@
 
 ```bash
 $ sudo apt-get install stow
-$ git clone https://github.com/joshbenham/linux-dotfiles.git ~/dotfiles
+$ git clone --depth 1 git@github.com:joshbenham/linux-dotfiles.git ~/dotfiles
 ```
 
 
@@ -15,6 +15,7 @@ $ git clone https://github.com/joshbenham/linux-dotfiles.git ~/dotfiles
 ### VIM
 
 ```bash
+$ cp ~/.bashrc ~/.bashrc.back
 $ cd ~/dotfiles
 $ stow vim
 ```
