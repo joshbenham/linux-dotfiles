@@ -1,6 +1,6 @@
 " sensible.vim - Defaults everyone can agree on
 " Maintainer:   Tim Pope <http://tpo.pe/>
-" Version:      1.2
+" Version:      2.0
 
 if exists('g:loaded_sensible') || &compatible
   finish
@@ -8,23 +8,25 @@ else
   let g:loaded_sensible = 'yes'
 endif
 
-if !(exists('g:did_load_filetypes') && exists('g:did_load_ftplugin') && exists('g:did_indent_on'))
-  filetype plugin indent on
-endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-
 " Use :help 'option' to see the documentation for the given option.
+
+" Disable vi compatibility, if for some reason it's on.
+if &compatible
+  set nocompatible
+endif
 
 " Check if an option was set from a file in $HOME.  This lets us avoid
 " overriding options in the user's vimrc, but still override options in the
 " system vimrc.
 function! s:MaySet(option) abort
-  redir => out
-  silent verbose execute 'setglobal all' a:option . '?'
-  redir END
-  return out !~# " \\~[\\/][^\n]*$"
+  if exists('*execute')
+    let out = execute('verbose setglobal all ' . a:option . '?')
+  else
+    redir => out
+    silent verbose execute 'setglobal all' a:option . '?'
+    redir END
+  endif
+  return out !~# " \\(\\~[\\/][^\n]*\\|Lua\\)$"
 endfunction
 
 if s:MaySet('backspace')
@@ -126,6 +128,13 @@ endif
 " Disable a legacy behavior that can break plugin maps.
 if has('langmap') && exists('+langremap') && &langremap && s:MaySet('langremap')
   set nolangremap
+endif
+
+if !(exists('g:did_load_filetypes') && exists('g:did_load_ftplugin') && exists('g:did_indent_on'))
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
 endif
 
 if empty(mapcheck('<C-U>', 'i'))
