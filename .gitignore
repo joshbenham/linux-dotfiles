@@ -1,3 +1,4 @@
 fonts/.fonts/fonts.dir
 vim/.vim/.netrwhist
 vim/.vim/autoload/plug.vim.old
+vim/.vim/plugged/
