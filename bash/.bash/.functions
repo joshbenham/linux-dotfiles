@@ -34,6 +34,18 @@ localhost-restart () {
     sudo service apache2 start
 }
 
+site-install () {
+    composer install
+    npm install
+    bower install
+}
+
+site-update () {
+    composer update
+    npm update
+    bower update
+}
+
 
 # PHP
 # -----------------------------------------------------------------------------
