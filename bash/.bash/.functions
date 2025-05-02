@@ -77,7 +77,7 @@ phpswap () {
         sudo a2dismod php7.0
         sudo a2enmod php7.4
         sudo systemctl restart apache2
-    elif [[ "$1" == "8.1" ]]; then
+    elif [[ "$1" == "8.4" ]]; then
         echo "Changing to PHP 8.4"
         sudo ln -sf /usr/bin/php8.4 /etc/alternatives/php
         sudo a2dismod php7.4
